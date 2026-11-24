@@ -1,10 +1,11 @@
 "use client"
 import React, { useState } from 'react'
 import { IoIosSearch } from 'react-icons/io'
+import WeatherCard from './WeatherCard';
 
-const SearchBar = () => {
+const SearchBar = ({ weather, setWeather, setLocationdata }) => {
   const [search, setSearch] = useState("");
-  const [weather, setWeather] = useState({});
+  
 
   const makesearch=()=>{
     console.log(search);
@@ -12,6 +13,7 @@ const SearchBar = () => {
     fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${search}&count=1`)
     .then(res=>res.json())
     .then((dat)=>{
+      setLocationdata(dat.results[0]);
       console.log(dat);
       const lat = dat.results[0].latitude;
       const long = dat.results[0].longitude;
@@ -43,6 +45,8 @@ const SearchBar = () => {
       <button onClick={makesearch} className='bg-[#424FD1] rounded-xl p-[16px]'>Search</button>
 
       </div>
+
+     
 
     
 
