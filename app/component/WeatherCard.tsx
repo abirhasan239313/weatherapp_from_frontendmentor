@@ -30,46 +30,46 @@ const WeatherCard = ({weatherdata,locationdata}) => {
 
         <img src="/icon-sunny.webp" className="w-[110px] " alt="" />
 
-        <p className='text-[44px] font-bold text-white'>{weatherdata?.current?.temperature_2m}°</p>
+        <p className='text-[44px] font-bold text-white'>{weatherdata?.current?.temperature_2m}° </p>
 
      </div>
      
         </div>
 
-        <div className='text-[24px] font-bold flex justify-between'>
-            <div className='bg-[#232338] p-3'>
+        <div className='text-[18px]  flex justify-between w-full gap-5 mt-8 text-[#E0E0E0]'>
+            <div className='bg-[#232338]  flex-1 rounded-xl px-5 py-3'>
 
-                <p className='mt-3'>Feels Like</p>
+                <p className='mt-3 mb-3'>Feels Like</p>
 
-                <p>{weatherdata?.current?.apparent_temperature}</p>
-
-            </div>
-            <div className='bg-[#232338] p-3'>
-
-                 <p className='mt-3'>Humidity</p>
-
-                <p>{weatherdata?.current?.relative_humidity_2m}</p>
+                <p className='mb-2'>{weatherdata?.current?.apparent_temperature}°</p>
 
             </div>
-            <div className='bg-[#232338] p-3'>
+            <div className='bg-[#232338] flex-1  rounded-xl px-5 py-3'>
 
+                 <p className='mt-3 mb-3'>Humidity</p>
 
-                 <p className='mt-3'>Wind</p>
-
-
-                <p>{weatherdata?.current?.wind_speed_10m}</p>
+                <p className='mb-2'>{weatherdata?.current?.relative_humidity_2m}{weatherdata?.current_units?.relative_humidity_2m}</p>
 
             </div>
-            <div className='bg-[#232338] p-3'>
+            <div className='bg-[#232338] flex-1  rounded-xl px-5 py-3'>
 
 
-                 <p className='mt-3'>Precipitation</p>
-                 <p>{weatherdata?.current?.precipitation}</p>
+                 <p className='mt-3 mb-3'>Wind</p>
+
+
+                <p className='mb-2'>{weatherdata?.current?.wind_speed_10m} {weatherdata?.current_units?.wind_speed_10m}</p>
+
+            </div>
+            <div className='bg-[#232338] flex-1 rounded-xl px-5 py-3'>
+
+
+                 <p className='mt-3 mb-3'>Precipitation</p>
+                 <p className='mb-2'>{weatherdata?.current?.precipitation} {weatherdata?.current_units?.precipitation}</p>
                  
 
 
 
-                <p>{}</p>
+                
 
             </div>
         </div>
